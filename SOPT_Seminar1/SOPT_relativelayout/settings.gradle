@@ -1,0 +1,2 @@
+rootProject.name='SOPT_relativelayout'
+include ':app'
