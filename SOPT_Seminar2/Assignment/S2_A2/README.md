@@ -12,7 +12,7 @@ ItemDecoration 클래스는 RecyclerView의 아이템들을 꾸며주는 역할�
 android:background="@drawable/item_border"를 item xml에 추가
 ![border](https://user-images.githubusercontent.com/55661741/81265561-4704d700-907e-11ea-92df-18d3612cc804.PNG)
 
-#clipToPadding
+# clipToPadding
 최상단이나 최하단에 패딩을 줬을 경우 스크롤을 하면 이 영역은 스크롤 영역에 포함되지 않는데
 cliptoPadding을 false로 주면 이 영역도 스크롤 영역에 포함되어 스크롤된다.
 
