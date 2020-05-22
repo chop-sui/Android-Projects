@@ -1,6 +1,7 @@
 package com.example.assignment1_2_loginregister.network
 
 import com.example.assignment1_2_loginregister.data.RequestLogin
+import com.example.assignment1_2_loginregister.data.RequestRegister
 import com.example.assignment1_2_loginregister.data.ResponseLogin
 import com.example.assignment1_2_loginregister.data.ResponseRegister
 import retrofit2.Call
@@ -12,11 +13,6 @@ interface RequestInterface{
     fun requestLogin(@Body body : RequestLogin) : Call<ResponseLogin>
 
     @POST("/user/signup")
-    fun requestRegister(
-        @Body body: String,
-        pw: String,
-        name: String,
-        phone: String,
-        email: String
-    ) :Call<ResponseRegister>
+    fun requestRegister(@Body body : RequestRegister) : Call<ResponseRegister>
+
 }

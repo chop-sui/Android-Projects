@@ -3,19 +3,38 @@ package com.example.assignment1_2_loginregister
 import android.content.Context
 import android.content.SharedPreferences
 
-class MySharedPreferences(context: Context) {
+object MySharedPreferences {
+    private val MY_ACCOUNT : String = "account"
 
-    val PREFS_FILENAME = "prefs"
-    var PREF_KEY_ID = "id"
-    var PREF_KEY_PWD = "pwd"
-    var prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
+    fun setUserId(context: Context, input: String) {
+        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = prefs.edit()
+        editor.putString("MY_ID", input)
+        editor.commit()
+    }
 
-    var id: String
-        get() = prefs.getString(PREF_KEY_ID, "")?:""
-        set(value) = prefs.edit().putString(PREF_KEY_ID, value).apply()
+    fun getUserId(context: Context): String {
+        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+        return prefs.getString("MY_ID", "")!!
+    }
 
-    var pwd: String
-        get() = prefs.getString(PREF_KEY_PWD, "")?:""
-        set(value) = prefs.edit().putString(PREF_KEY_PWD, value).apply()
+    fun setUserPwd(context: Context, input: String) {
+        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = prefs.edit()
+        editor.putString("MY_PASS", input)
+        editor.commit()
+    }
+
+    fun getUserPwd(context: Context): String {
+        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+        return prefs.getString("MY_PASS", "").toString()
+    }
+
+    fun clearUser(context: Context) {
+        val prefs : SharedPreferences = context.getSharedPreferences(MY_ACCOUNT, Context.MODE_PRIVATE)
+        val editor : SharedPreferences.Editor = prefs.edit()
+        editor.clear()
+        editor.commit()
+    }
 
 }
